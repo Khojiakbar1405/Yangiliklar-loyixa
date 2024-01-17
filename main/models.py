@@ -12,6 +12,7 @@ class Region(models.Model):
 
     def __str__(self):
         return self.name
+    
 
 class Item(models.Model):
     title = models.CharField(max_length=255)
@@ -25,10 +26,16 @@ class Item(models.Model):
     def __str__(self):
         return self.title
 
-
 class Form(models.Model):
     body = models.TextField()
     name = models.CharField(max_length=255)
     email = models.EmailField()
-    is_checked = models.BooleanField(default=True)
-     
+    is_checked = models.BooleanField(default=False)
+
+
+class Appeal(models.Model):
+    body = models.TextField()
+    name = models.CharField(max_length=255)
+    email = models.EmailField()
+    phone = models.TextField()
+    is_checked = models.BooleanField(default=False)

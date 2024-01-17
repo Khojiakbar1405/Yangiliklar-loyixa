@@ -1,19 +1,30 @@
 from django.urls import path
-from .views import *
+from . import views
 
 urlpatterns = [
     # front
-    path('all/', all, name='about'),
-    path('blog/', blog, name='blog'),
-    path('categori/', categori, name='categori'),
-    path('contact/', contact, name='contact'),
-    path('elements/', elements, name='elements'),
-    path('', index, name='index'),
-    # path('details/', details, name='details'),
-    # path('latest_news/', latest_news, name='latest_news'),
-    # path('main/', main, name='main'),
-    # path('singleblog/', singleblog, name='singleblog'),
-
+    path('', views.index, name='index'),
+    path('contact/', views.contact, name='contact'),
+    path('categori/', views.news, name='categori'),
+    path('news/', views.news, name='news'),
+    path('appeal/', views.appeal, name='appeal'),
     # dashboard
-    path('dashboard/', dashboard_index, name='index')
+    path('dashboard/', views.dashboard, name='dashboard'),
+    # region
+    path('dashboard/region/create/', views.create_region, name='create_region'),
+    path('dashboard/region/list/', views.regions, name='regions'),
+    path('dashboard/region/update/<int:id>/', views.region_update, name='region_update'),
+    path('dashboard/region/delete/<int:id>/', views.region_delete, name='region_delete'),
+    # categorys
+    path('dashboard/category/create/', views.create_category, name='create_category'),
+    path('dashboard/category/list/', views.categorys, name='categorys'),
+    path('dashboard/category/update/<int:id>/', views.category_update, name='category_update'),
+    path('dashboard/category/delete/<int:id>/', views.category_delete, name='category_delete'),
+    # itms
+    path('dashboard/item/create/', views.item_create, name='item_create'),
+    path('dashboard/item/list/', views.items, name='items'),
+    path('dashboard/item/update/<int:id>/', views.item_update, name='item_update'),
+    path('dashboard/item/delete/<int:id>/', views.item_delete, name='item_delete'),
+    # murojat
+    path('dashboard/appeal/list/', views.appeal_dashboard, name='appeal_dashboard')
 ]
